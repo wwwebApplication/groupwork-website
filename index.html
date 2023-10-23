@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>LIMKOKWING RECOMMENDATION APPLICATION</title>
+</head>
+
+<style>
+	#outter_box{
+	width: 70%;
+	background-color: #3a454c;
+	padding: 2em;
+	display: flex;
+	margin: auto;
+	margin-top: 3em;
+	border-radius: 2em;
+	opacity: 1;
+	color: white;
+}
+#input_box{
+	width: 45%;
+	background-color: #3a454c;
+	padding: 2em;
+	border-radius: 0.5em;
+	margin: 1em;
+}
+#inputs{
+	display: flex;
+}
+#inputs p{
+	width: 10em;
+}
+input{
+	height: 1em;
+	padding: 0.5em;
+	border-radius: 0.5em;
+	background-color: transparent;
+	border: solid #1c2225 1px;
+	color: white;
+}
+#submit_btn{
+	width: 24em;
+	height: 2.5em;
+	border-radius: 0.5em;
+
+}
+.output_box{
+	width: 45%;
+	background-color: #3c484f;
+	border-radius: 0.5em;
+	padding: 2em;
+	margin: 1em;
+	border: solid #1c2225 1px;
+	opacity: 0;
+}
+.on{
+	opacity: 1;
+}
+#output_image{
+	width: 100%;
+	height: 40%;
+}
+#course_name{
+	width: 100%;
+	height: 10%;
+	margin-top: -0.001em;
+}
+#course_detail{
+	width: 100%;
+	height: 24%;
+	margin-top: -1.1em;
+	flex-flow: all;
+}
+body{
+	background-color: #121211;
+	background-image: url('workshops.jpg');
+	
+}
+</style>
+<body>
+	<center><h1 style="color: black;">WELCOME TO LIMKOKWING UNIVERSITY APPICATION</h1> </center>
+	<div id="outter_box">
+		<div id="input_box">
+			<h2>Enter your grades</h2>
+			<div id="inputs"><p>Mathematics</p><input type="text" name="" id="maths" required="true" placeholder="Enter symbol"></div>
+			<div id="inputs"><p>English</p><input type="text" name="" id="eng" required="true" placeholder="Enter symbol"></div>
+			<div id="inputs"><p>Business Studies</p><input type="text" name="" id="bus" required="true" placeholder="Enter symbol"></div><br>
+			<button id="submit_btn" onclick="submit()">Submit</button>
+		</div>
+		<div id="output_box" class="output_box">
+			<h2>Output</h2>
+			<img src="" id="output_image">
+			<h5 id="course_name"></h5>
+			<p id="course_detail"></p>
+		</div>
+	</div>
+
+	<script>
+		function submit() {
+	if(document.querySelector('#maths').value.toUpperCase() != ''&& document.querySelector('#eng').value.toUpperCase() != '' && document.querySelector('#bus').value.toUpperCase() != ''){
+
+
+		if(document.querySelector('#maths').value.toUpperCase() == 'A')
+		{
+			document.getElementById('output_box').classList.add('on');
+			document.querySelector('#output_image').src = "IT.jpg";
+			document.querySelector('#course_name').innerHTML = "INFORMATION TECHNOLOGY";
+			document.querySelector('#course_detail').innerHTML = "A broad based programme of IT studies,which aims to acquaint students with a wide range of problems that arise in computing and Information Technology, together with various methods and technologies available as solutions.";
+		}
+
+
+		else if(document.querySelector('#eng').value.toUpperCase() == 'B' && document.querySelector('#bus').value.toUpperCase() == 'B'|| document.querySelector('#eng').value.toUpperCase() == 'A' && document.querySelector('#bus').value.toUpperCase() == 'A')
+		{
+			document.getElementById('output_box').classList.add('on');
+			document.querySelector('#output_image').src = "management.jpg";
+			document.querySelector('#course_name').innerHTML = "BUSINESS MANAGEMENT";
+			document.querySelector('#course_detail').innerHTML = "A programm that is designed to equip students with skills on how to manage today's drastic business environment.The aims are to provide with an effective business education which will equipt them with the analytic,conceptual and practical skills needed by the business community.";
+		}
+
+
+		else if(document.querySelector('#eng').value.toUpperCase() == 'B'|| document.querySelector('#eng').value.toUpperCase() == 'A')
+		
+		{
+			document.getElementById('output_box').classList.add('on');
+			document.querySelector('#output_image').src = "communication.jpg";
+			document.querySelector('#course_name').innerHTML = "COMMUNICATION STUDIES";
+			document.querySelector('#course_detail').innerHTML = "A programm course that ha s been structured to equip students with skills and knowledge on how to contribute effectively  in their chosen carier in communication,to expose to the varient skills of communication,public relations,jouralism,advertising and marketing as well as how to interact with people.";
+		}
+
+		else
+		{
+			document.getElementById('output_box').classList.add('on');
+			document.querySelector('#output_image').src = "";
+			document.querySelector('#course_name').innerHTML = "sorry!! you do not qualify at all,please try again next year";
+			document.querySelector('#course_detail').innerHTML = "";
+		}
+	}else
+	{
+		alert('Please fill all boxes.');
+	}
+}
+	</script>
+</body>
+</html>
